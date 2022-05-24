@@ -24,6 +24,9 @@ $router->post('api/login' , ['uses' => 'LoginController@login'] );
 
 
 
+
+
+
 $router->group( ['prefix' => 'api','middleware'=>'auth'], function() use ($router) {
 
     
@@ -48,9 +51,25 @@ $router->group( ['prefix' => 'api','middleware'=>'auth'], function() use ($route
 
     $router->put('pelanggan/{id}' , ['uses' => 'PelangganController@update'] );
 
+
     $router->post('menu' , ['uses' => 'MenuController@create'] );
 
     $router->get('menu' , ['uses' => 'MenuController@index'] );
+
+    $router->get('menu/{id}' , ['uses' => 'MenuController@show'] );
+
+    $router->delete('menu/{id}' ,['uses' => 'MenuController@destroy'] );
+
+    $router->post('menu/{id}' , ['uses' => 'MenuController@update'] );
+
+
+    $router->get('order' , ['uses' => 'OrderController@index'] );
+
+    $router->put('order/{id}' , ['uses' => 'OrderController@update'] );
+
+
+
+    
 
 });
 
