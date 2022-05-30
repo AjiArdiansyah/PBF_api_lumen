@@ -67,6 +67,8 @@ $router->group( ['prefix' => 'api','middleware'=>'auth'], function() use ($route
 
     $router->put('order/{id}' , ['uses' => 'OrderController@update'] );
 
+    $router->get('order/{a}/{b}' , ['uses' => 'OrderController@show'] );
+
 
 
     
