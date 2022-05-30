@@ -54,13 +54,15 @@ class OrderController extends Controller
     public function show($a, $b)
     {
         
-        //
-
-        $order = Order::where('tglorder','>=',$a)
-        ->where('tglorder','<=',$b)
+        $data = DB::table('orders')
+        ->join('pelanggans','pelanggans.idpelanggan','=','orders.idpelanggan')
+        ->select('orders.*','pelanggans.*')
+        ->where('tglorder','>=', $a)
+        ->where('tglorder','<=', $b)
+        ->orderBy('orders.status','asc')
         ->get();
 
-        return response()->json($order);
+        return response()->json($data);
     }
 
     /**
