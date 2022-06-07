@@ -70,6 +70,9 @@ $router->group( ['prefix' => 'api','middleware'=>'auth'], function() use ($route
     $router->get('order/{a}/{b}' , ['uses' => 'OrderController@show'] );
 
 
+    $router->get('detail/{a}/{b}' , ['uses' => 'DetailController@show'] );
+
+
 
     
 
