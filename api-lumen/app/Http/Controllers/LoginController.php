@@ -57,6 +57,18 @@ class LoginController extends Controller
         ]);
     }
    }
+
+   public function update(Request $request, $id)
+   {
+       //
+       $user = User::where('id', $id)->update($request->all());
+
+       if ($user) {
+           return response()->json([
+               'pesan' => "Data sudah di ubah !"
+           ]);
+       }
+   }
        
    
    

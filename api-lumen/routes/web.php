@@ -75,6 +75,9 @@ $router->group( ['prefix' => 'api','middleware'=>'auth'], function() use ($route
     $router->get('user' , ['uses' => 'LoginController@index'] );
 
 
+    $router->put('user/{id}' , ['uses' => 'LoginController@update'] );
+
+
 
     
 
