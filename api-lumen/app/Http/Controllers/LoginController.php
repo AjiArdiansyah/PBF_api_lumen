@@ -38,6 +38,8 @@ class LoginController extends Controller
 
     $user = User::where('email',$email)->first();
 
+    if (isset($user)) {
+        
     if ($user->status === 1) {
         if ($user->password === $password) {
             $token = Str::random(40);
@@ -63,6 +65,14 @@ class LoginController extends Controller
                 'data' => ''
             ]);
     }
+    } else {
+        return response()->json([
+            'pesan' => 'login gagal',
+            'data' => ''
+        ]);
+    }
+    
+
 
    
    }
